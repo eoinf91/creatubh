@@ -1,0 +1,82 @@
+@import '../all.scss';
+
+header{
+    width: 100vw;
+    height: 70vh;
+    background: $green-blue;
+    position: relative;
+    padding: 20px;
+
+    @media ( min-width: $desktop ) {
+        padding: 0;
+        min-height: 900px;
+    }
+
+    * {
+        z-index: 1;
+    }
+
+    #head-blob {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 0;
+        opacity: 0.3;
+        width: 75%;
+
+        @media ( min-width: $desktop ) {
+            width: 55%;
+        }
+    }
+
+    .two-col {
+        margin-top: 80px;
+        position: relative;
+        z-index: 10;
+        text-align: center;
+
+        @media ( min-width: $desktop ) {
+            text-align: left;
+        }
+    }
+
+    svg {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .egg {
+        display: none;
+
+        @media ( min-width: $desktop ) {
+            display: block;
+            text-align: center;
+            width: 100%;
+        }
+
+        svg {
+            position: relative;
+            bottom: auto;
+            width: 500px;
+            margin: auto;
+            display: inline-block;
+
+            image {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .line {
+        position: absolute;
+        bottom: -10px;
+        width: 100%;
+        left: 0;
+        z-index: 1;
+
+        @media ( min-width: $desktop ) {
+            bottom: -150px;
+        }
+    }
+}

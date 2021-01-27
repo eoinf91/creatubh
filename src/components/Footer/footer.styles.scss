@@ -1,0 +1,57 @@
+@import '../all.scss';
+
+footer {
+    background: $green-blue;
+    position: relative;
+    padding-bottom: 30px;
+    overflow: hidden;
+
+    .line {
+        position: absolute;
+        top: -20px;
+        z-index: 1;
+        transform: scale(2);
+
+        @media ( min-width: $desktop ) {
+            top: -100px;
+        }
+    }
+
+    .instagram-feed {
+        margin-top: 50px;
+        padding: 0 20px;
+    }
+
+    .footer-nav {
+        max-width: 1500px;
+        margin: 50px auto 0;
+        padding: 0 20px;
+        
+        @media ( min-width: $desktop ) {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .col {
+            margin: 0 0 20px;
+
+            @media ( min-width: $desktop ) {
+                margin: 0;
+            }
+        }
+
+        a {
+            text-transform: uppercase;
+            color: $blue-green;
+            display: inline-block;
+            margin: 0 10px 0 0;
+            font-size: 12px;
+            letter-spacing: 1px;
+            font-weight: 400;
+
+            @media ( min-width: $desktop ) {
+                font-size: 14px;;
+            }
+        }
+    }
+}

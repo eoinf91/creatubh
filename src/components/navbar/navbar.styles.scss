@@ -1,0 +1,113 @@
+@import '../all.scss';
+
+nav {
+    width: 100%;
+    max-width: 1500px;
+    margin: auto;
+    padding-top: 0;
+    z-index: 1;
+    position: relative;
+
+    @media ( min-width: $desktop ) {
+        padding-top: 10px;
+    }
+
+    &.navbar {
+        background: transparent;
+    }
+
+    .navbar-brand {
+
+        img {
+            width: 130px;
+            height: auto;
+            max-height: none;
+
+            @media ( min-width: $desktop ) {
+                width: 200px;
+            }
+        }
+    }
+
+    .navbar-burger {
+
+        span {
+            height: 2px;
+            background: $white;
+        }
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 100% !important;
+
+        #navMenu {
+            position: fixed;
+            z-index: 10000;
+            width: calc(100% - 40px);
+            background: $green-blue;
+
+            @media ( min-width: $desktop ) {
+                position: relative;
+                width: 50%;
+                align-items: auto !important;
+                flex-grow: 0;
+                margin-right: 0;
+                background: transparent;
+            }
+
+            .navbar-start {
+                padding: 20px;
+
+                @media ( min-width: $desktop ) {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0;
+                }
+
+                .navbar-item {
+                    display: block;
+                    font-family: "Montserrat";
+                    font-weight: 700;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    font-size: $nav-fs;
+                    color: $white;
+                    transition: all 0.5s ease;
+
+                    &:hover {
+                        color: $orange;
+                    }
+                }
+            }
+        }
+    }
+
+    .social {
+        display: none;
+
+        @media ( min-width: $desktop ) {
+            display: block;
+            position: fixed;
+            top: 50px;
+            right: 40px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin: 0 auto 20px;
+
+            img {
+                height: 30px;
+                width: auto;
+            }
+        }
+    }
+}

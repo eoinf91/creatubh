@@ -1,0 +1,130 @@
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma";
+
+// Variables
+// Colours
+$brown: #bc4f07;
+$orange: #fe982a;
+$green: #005236;
+$green-blue: #20686c;
+$blue-green: #6bc4a6;
+$blue-green-light: #e1f3ed;
+$white: #ffffff;
+$black: #111111;
+
+.white-text {
+    color: $white;
+}
+
+.orange-text {
+    color: $orange;
+}
+
+.green-text {
+    color: $green;
+}
+
+.blue-green-text {
+    color: $blue-green;
+}
+
+.green-blue-text {
+    color: $green-blue;
+}
+
+// Breakpoints
+$mobile: 640px;
+$tablet: 768px;
+$desktop: 1200px;
+$xlDesktop: 1920px;
+
+// Font sizes
+$nav-fs: 14px;
+
+* {
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background: $blue-green-light;
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: 1px;
+    font-weight: 700;
+
+    @media ( min-width: $desktop ) {
+        font-size: 70px;
+        line-height: 88px;
+        letter-spacing: 2px;
+        max-width: 450px;
+    }
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: 700;
+
+    @media ( min-width: $desktop ) {
+        font-size: 50px;
+        line-height: 62px;
+        letter-spacing: 2px;
+    }
+}
+
+.cta {
+    padding: 10px 20px;
+    background: $orange;
+    border-radius: 100px;
+    color: $white;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 1s ease;
+    border: 1px solid $orange;
+    font-size: 14px;
+
+    @media ( min-width: $desktop ) {
+        font-size: 16px;
+    }
+
+    &:hover {
+        background: transparent;
+        color: $orange;
+    }
+}
+
+.two-col {
+    margin: 0 auto;
+
+    @media ( min-width: $desktop ) {
+        max-width: 1500px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .col {
+        
+        @media ( min-width: $desktop ) {
+            width: calc( 100% / 2 - 20px);
+        }
+    }
+
+    .cta {
+        display: inline-block;
+        margin-top: 50px;
+    }
+}
