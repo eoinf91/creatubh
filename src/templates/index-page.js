@@ -3,142 +3,100 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-import Features from '../components/Features'
-import BlogRoll from '../components/BlogRoll'
+import Header from '../components/Header/Header'
+import Content, { HTMLContent } from '../components/Content/Content'
+import ThreeCols from '../components/ThreeCols/ThreeCols'
 
 export const IndexPageTemplate = ({
-  image,
   title,
-  heading,
-  subheading,
-  mainpitch,
-  description,
-  intro,
-}) => (
+  btnLink,
+  btnText,
+  aboutContent,
+  contentComponent,
+  aboutPath,
+  processColOneCopy,
+  processColOneTitle,
+  processColTwoCopy,
+  processColTwoTitle,
+  processColThreeCopy,
+  processColThreeTitle,
+  processColOneImage,
+  processColTwoImage,
+  processColThreeImage,
+  processSubtitle,
+}) => {
+  const AboutPageContent = contentComponent || Content
+
+  return (
   <div>
-    {/* <div
-      className="full-width-image margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`,
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column',
-        }}
-      >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {title}
-        </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {subheading}
-        </h3>
-      </div>
-    </div>
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
-                  </div>
-                </div>
-                <div className="columns">
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
-                  </div>
-                </div>
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> */}
+    <Header
+      title={title}
+      btnText={btnText}
+      btnLink={btnLink}
+    />
+    <AboutPageContent
+      content={aboutContent}
+      path={aboutPath}
+    />
+    <ThreeCols
+      colOneTitle={processColOneTitle}
+      colOneCopy={processColOneCopy}
+      colTwoTitle={processColTwoTitle}
+      colTwoCopy={processColTwoCopy}
+      colThreeTitle={processColThreeTitle}
+      colThreeCopy={processColThreeCopy}
+      colOneImage={processColOneImage}
+      colTwoImage={processColTwoImage}
+      colThreeImage={processColThreeImage}
+      subtitle={processSubtitle}
+    />
   </div>
-)
+)}
 
 IndexPageTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
+  pageHead: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    btnLink: PropTypes.string.isRequired,
+    btnText: PropTypes.string.isRequired,
   }),
+  aboutContent: PropTypes.string,
+  contentComponent: PropTypes.func,
+  aboutPath: PropTypes.string,
+  processColOneCopy: PropTypes.string,
+  processColOneTitle: PropTypes.string,
+  processColTwoCopy: PropTypes.string,
+  processColTwoTitle: PropTypes.string,
+  processColThreeCopy: PropTypes.string,
+  processColThreeTitle: PropTypes.string,
+  processColOneImage: PropTypes.string,
+  processColTwoImage: PropTypes.string,
+  processColThreeImage: PropTypes.string,
+  processSubtitle: PropTypes.string,
 }
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+  const { frontmatter } = data.indexPageQuery
+  const { aboutPageQuery: post } = data
 
   return (
     <Layout>
       <IndexPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
+        title={frontmatter.pageHead.title}
+        btnLink={frontmatter.pageHead.ctaBtn.link}
+        btnText={frontmatter.pageHead.ctaBtn.text}
+        contentComponent={HTMLContent}
+        aboutContent={post.html}
+        aboutPath={data.aboutPageQuery.frontmatter.path}
+        processColOneCopy={data.processPageQuery.frontmatter.processOverview.colOne.copy}
+        processColTwoCopy={data.processPageQuery.frontmatter.processOverview.colTwo.copy}
+        processColThreeCopy={data.processPageQuery.frontmatter.processOverview.colThree.copy}
+        processColOneTitle={data.processPageQuery.frontmatter.processOverview.colOne.title}
+        processColTwoTitle={data.processPageQuery.frontmatter.processOverview.colTwo.title}
+        processColThreeTitle={data.processPageQuery.frontmatter.processOverview.colThree.title}
+        processColOneImage={data.processPageQuery.frontmatter.processOverview.colOne.featuredImage}
+        processColTwoImage={data.processPageQuery.frontmatter.processOverview.colTwo.featuredImage}
+        processColThreeImage={data.processPageQuery.frontmatter.processOverview.colThree.featuredImage}
+        processSubtitle={data.processPageQuery.frontmatter.subtitle}
       />
     </Layout>
   )
@@ -146,7 +104,13 @@ const IndexPage = ({ data }) => {
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
+    indexPageQuery: PropTypes.shape({
+      frontmatter: PropTypes.object,
+    }),
+    aboutPageQuery: PropTypes.shape({
+      frontmatter: PropTypes.object,
+    }),
+    processPageQuery: PropTypes.shape({
       frontmatter: PropTypes.object,
     }),
   }),
@@ -156,36 +120,49 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+    indexPageQuery: markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
-        title
-        image {
-          childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        heading
-        subheading
-        mainpitch {
+        pageHead {
           title
-          description
-        }
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
+          ctaBtn {
+            link
             text
           }
-          heading
-          description
+        }
+      }
+    }
+    aboutPageQuery: markdownRemark(frontmatter: { templateKey: { eq: "about-page" } }) {
+      html
+      frontmatter {
+        path
+      }
+    }
+    processPageQuery: markdownRemark(frontmatter: { templateKey: { eq: "process-page" } }) {
+      frontmatter {
+        path
+        subtitle
+        processOverview {
+          colOne {
+            copy
+            title
+            featuredImage {
+              publicURL
+            }
+          }
+          colTwo {
+            copy
+            title
+            featuredImage {
+              publicURL
+            }
+          }
+          colThree {
+            copy
+            title
+            featuredImage {
+              publicURL
+            }
+          }
         }
       }
     }

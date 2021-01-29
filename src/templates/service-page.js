@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import Header from '../components/Header/Header'
 import Content, { HTMLContent } from '../components/Content/Content'
 
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
+export const ServicePageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -17,7 +17,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   )
 }
 
-AboutPageTemplate.propTypes = {
+ServicePageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
@@ -26,40 +26,37 @@ AboutPageTemplate.propTypes = {
   }),
 }
 
-const AboutPage = ({ data }) => {
-  const { aboutQuery: post } = data
-  const { frontmatter } = data.aboutQuery
+const ServicePage = ({ data }) => {
+  const { markdownRemark: post } = data
+  const { frontmatter } = data.markdownRemark
 
   return (
     <Layout>
-      <AboutPageTemplate
+      <ServicePageTemplate
         contentComponent={HTMLContent}
-        title={frontmatter.pageHead.title}
+        title={frontmatter.title}
         content={post.html}
       />
     </Layout>
   )
 }
 
-AboutPage.propTypes = {
+ServicePage.propTypes = {
   data: PropTypes.shape({
-    aboutQuery: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
     }),
   }),
 }
 
-export default AboutPage
+export default ServicePage
 
-export const aboutPageQuery = graphql`
-  query AboutPage($id: String!) {
-    aboutQuery: markdownRemark(id: { eq: $id }) {
+export const ServicePageQuery = graphql`
+  query ServicePage($id: String!) {
+    markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
         title
-        pageHead {
-          title
-        }
       }
     }
   }

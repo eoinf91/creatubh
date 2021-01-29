@@ -6,6 +6,10 @@ footer {
     padding-bottom: 30px;
     overflow: hidden;
 
+    @media ( min-width: $desktop ) {
+        overflow: visible;
+    }
+
     .line {
         position: absolute;
         top: -20px;
@@ -14,6 +18,7 @@ footer {
 
         @media ( min-width: $desktop ) {
             top: -100px;
+            transform: none;
         }
     }
 

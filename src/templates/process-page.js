@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import Header from '../components/Header/Header'
 import Content, { HTMLContent } from '../components/Content/Content'
 
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
+export const ProcessPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -17,7 +17,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   )
 }
 
-AboutPageTemplate.propTypes = {
+ProcessPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
@@ -26,40 +26,37 @@ AboutPageTemplate.propTypes = {
   }),
 }
 
-const AboutPage = ({ data }) => {
-  const { aboutQuery: post } = data
-  const { frontmatter } = data.aboutQuery
+const ProcessPage = ({ data }) => {
+  const { markdownRemark: post } = data
+  const { frontmatter } = data.markdownRemark
 
   return (
     <Layout>
-      <AboutPageTemplate
+      <ProcessPageTemplate
         contentComponent={HTMLContent}
-        title={frontmatter.pageHead.title}
+        title={frontmatter.title}
         content={post.html}
       />
     </Layout>
   )
 }
 
-AboutPage.propTypes = {
+ProcessPage.propTypes = {
   data: PropTypes.shape({
-    aboutQuery: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
     }),
   }),
 }
 
-export default AboutPage
+export default ProcessPage
 
-export const aboutPageQuery = graphql`
-  query AboutPage($id: String!) {
-    aboutQuery: markdownRemark(id: { eq: $id }) {
+export const ProcessPageQuery = graphql`
+  query ProcessPage($id: String!) {
+    markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
         title
-        pageHead {
-          title
-        }
       }
     }
   }

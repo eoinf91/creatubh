@@ -42,7 +42,7 @@ header{
 
     svg {
         position: absolute;
-        bottom: 0;
+        bottom: -1px;
     }
 
     .egg {
@@ -74,9 +74,11 @@ header{
         width: 100%;
         left: 0;
         z-index: 1;
+        transform: scale(2);
 
         @media ( min-width: $desktop ) {
             bottom: -150px;
+            transform: none;
         }
     }
 }

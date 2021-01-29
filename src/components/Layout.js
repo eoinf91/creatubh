@@ -51,7 +51,6 @@ const TemplateWrapper = ({ children }) => {
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
       </Helmet>
-      <Header />
       <div>{children}</div>
       <Footer />
     </div>

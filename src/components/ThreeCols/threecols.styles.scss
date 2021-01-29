@@ -1,0 +1,53 @@
+@import "../all.scss";
+
+.three-cols-content {
+    margin: 50px auto;
+    max-width: 1500px;
+    text-align: center;
+
+    h2 {
+        max-width: 1000px;
+    }
+
+    .col {
+        padding: 0 20px;
+        text-align: center;
+        margin: 0 auto 20px;
+
+        @media ( min-width: $tablet ) {
+            width: calc( 100% / 3 - 10px );
+        }
+    }
+
+    img {
+        display: block;
+        width: 200px;
+        margin: 0 auto 10px;
+
+        @media ( min-width: $tablet ) {
+            width: 150px;
+        }
+
+        @media ( min-width: $desktop ) {
+            width: 75%;
+            max-width: 250px;
+        }
+    }
+
+    .three-col {
+
+        @media ( min-width: $tablet ) {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media ( min-width: $desktop ) {
+            margin: 40px auto 0;
+        }
+    }
+
+    .cta {
+        margin: 30px auto;
+        display: inline-block;
+    }
+}

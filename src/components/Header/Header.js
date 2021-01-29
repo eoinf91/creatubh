@@ -5,7 +5,7 @@ import Egg from '../Egg/Egg';
 import Line from '../Line/Line';
 import "./header.styles.scss";
 
-const Header = () => {
+const Header = ({ title, btnLink, btnText }) => {
     return (
         <header>
             <svg id="head-blob" viewBox="0 0 1267 702">
@@ -15,9 +15,9 @@ const Header = () => {
             {/* Two Col */}
             <div className="two-col">
                 <div className="col">
-                    <h1 className="white-text">Bring your brand story to life</h1>
-                    <Link to="/contact" className="cta">
-                        Get a quote
+                    <h1 className="white-text">{ title }</h1>
+                    <Link to={btnLink} className="cta">
+                        {btnText}
                     </Link>
                 </div>
                 <div className="col">
