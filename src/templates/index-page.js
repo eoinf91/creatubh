@@ -93,9 +93,9 @@ const IndexPage = ({ data }) => {
         processColOneTitle={data.processPageQuery.frontmatter.processOverview.colOne.title}
         processColTwoTitle={data.processPageQuery.frontmatter.processOverview.colTwo.title}
         processColThreeTitle={data.processPageQuery.frontmatter.processOverview.colThree.title}
-        processColOneImage={data.processPageQuery.frontmatter.processOverview.colOne.featuredImage}
-        processColTwoImage={data.processPageQuery.frontmatter.processOverview.colTwo.featuredImage}
-        processColThreeImage={data.processPageQuery.frontmatter.processOverview.colThree.featuredImage}
+        processColOneImage={data.processPageQuery.frontmatter.processOverview.colOne.iconImage}
+        processColTwoImage={data.processPageQuery.frontmatter.processOverview.colTwo.iconImage}
+        processColThreeImage={data.processPageQuery.frontmatter.processOverview.colThree.iconImage}
         processSubtitle={data.processPageQuery.frontmatter.subtitle}
       />
     </Layout>
@@ -145,23 +145,17 @@ export const pageQuery = graphql`
           colOne {
             copy
             title
-            featuredImage {
-              publicURL
-            }
+            iconImage
           }
           colTwo {
             copy
             title
-            featuredImage {
-              publicURL
-            }
+            iconImage
           }
           colThree {
             copy
             title
-            featuredImage {
-              publicURL
-            }
+            iconImage
           }
         }
       }

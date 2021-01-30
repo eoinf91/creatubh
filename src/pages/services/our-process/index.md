@@ -6,17 +6,17 @@ subtitle: 'We take care of your business and the story behind it'
 pageIntro: 'Years of working closely with our clients brought to the surface some issues that slowed down the design process. That is why we came up with our ‘Creatubh Process’ which makes it simple for us to understand your expectations and easy for you to achieve the best results in a shorter time!'
 processOverview:
     colOne:
-        featuredImage: /img/we_hear.svg
+        iconImage: /img/we_hear.svg
         title: We Hear
         copy: >
             Pop on a call with us! We want to hear your story and your goals.
     colTwo:
-        featuredImage: /img/we_think.svg
+        iconImage: /img/we_think.svg
         title: We Think
         copy: >
             We reflect on who you are and how to enhance you digitally.
     colThree:
-        featuredImage: /img/we_create.svg
+        iconImage: /img/we_create.svg
         title: We Create
         copy: >
             Based on what we heard and thought of, we will create what will help your business grow.
