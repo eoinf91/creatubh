@@ -6,12 +6,12 @@ import Layout from '../components/Layout'
 import Header from '../components/Header/Header'
 import Content, { HTMLContent } from '../components/Content/Content'
 
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
+export const AboutPageTemplate = ({ title, content, contentComponent, subtitle }) => {
   const PageContent = contentComponent || Content
 
   return (
     <div>
-      <Header title={title} />
+      <Header title={title} subtitle={subtitle} />
       <PageContent className="content" content={content} />
     </div>
   )
@@ -36,6 +36,7 @@ const AboutPage = ({ data }) => {
         contentComponent={HTMLContent}
         title={frontmatter.pageHead.title}
         content={post.html}
+        subtitle={frontmatter.pageHead.subtitle}
       />
     </Layout>
   )
@@ -59,6 +60,7 @@ export const aboutPageQuery = graphql`
         title
         pageHead {
           title
+          subtitle
         }
       }
     }

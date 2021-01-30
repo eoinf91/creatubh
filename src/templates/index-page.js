@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Header from '../components/Header/Header'
 import Content, { HTMLContent } from '../components/Content/Content'
 import ThreeCols from '../components/ThreeCols/ThreeCols'
+import Form from '../components/Form/Form'
 
 export const IndexPageTemplate = ({
   title,
@@ -24,6 +25,9 @@ export const IndexPageTemplate = ({
   processColTwoImage,
   processColThreeImage,
   processSubtitle,
+  formHeading,
+  formSubheading,
+  templateKey,
 }) => {
   const AboutPageContent = contentComponent || Content
 
@@ -33,6 +37,7 @@ export const IndexPageTemplate = ({
       title={title}
       btnText={btnText}
       btnLink={btnLink}
+      templateKey={templateKey}
     />
     <AboutPageContent
       content={aboutContent}
@@ -49,6 +54,10 @@ export const IndexPageTemplate = ({
       colTwoImage={processColTwoImage}
       colThreeImage={processColThreeImage}
       subtitle={processSubtitle}
+    />
+    <Form
+      formHeading={ formHeading }
+      formSubheading={ formSubheading }
     />
   </div>
 )}
@@ -72,20 +81,23 @@ IndexPageTemplate.propTypes = {
   processColTwoImage: PropTypes.string,
   processColThreeImage: PropTypes.string,
   processSubtitle: PropTypes.string,
+  form: PropTypes.shape({
+    heading: PropTypes.string.isRequired,
+    subheading: PropTypes.string.isRequired,
+  }),
+  templateKey: PropTypes.string,
 }
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.indexPageQuery
-  const { aboutPageQuery: post } = data
-
+  
   return (
     <Layout>
       <IndexPageTemplate
-        title={frontmatter.pageHead.title}
-        btnLink={frontmatter.pageHead.ctaBtn.link}
-        btnText={frontmatter.pageHead.ctaBtn.text}
+        title={data.indexPageQuery.frontmatter.pageHead.title}
+        btnLink={data.indexPageQuery.frontmatter.pageHead.ctaBtn.link}
+        btnText={data.indexPageQuery.frontmatter.pageHead.ctaBtn.text}
         contentComponent={HTMLContent}
-        aboutContent={post.html}
+        aboutContent={data.aboutPageQuery.html}
         aboutPath={data.aboutPageQuery.frontmatter.path}
         processColOneCopy={data.processPageQuery.frontmatter.processOverview.colOne.copy}
         processColTwoCopy={data.processPageQuery.frontmatter.processOverview.colTwo.copy}
@@ -97,6 +109,9 @@ const IndexPage = ({ data }) => {
         processColTwoImage={data.processPageQuery.frontmatter.processOverview.colTwo.iconImage}
         processColThreeImage={data.processPageQuery.frontmatter.processOverview.colThree.iconImage}
         processSubtitle={data.processPageQuery.frontmatter.subtitle}
+        formHeading={data.indexPageQuery.frontmatter.form.heading}
+        formSubheading={data.indexPageQuery.frontmatter.form.subheading}
+        templateKey={data.indexPageQuery.frontmatter.templateKey}
       />
     </Layout>
   )
@@ -120,7 +135,7 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
-    indexPageQuery: markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+    indexPageQuery: markdownRemark(frontmatter: {templateKey: {eq: "index-page"}}) {
       frontmatter {
         pageHead {
           title
@@ -129,6 +144,11 @@ export const pageQuery = graphql`
             text
           }
         }
+        form {
+          heading
+          subheading
+        }
+        templateKey
       }
     }
     aboutPageQuery: markdownRemark(frontmatter: { templateKey: { eq: "about-page" } }) {
