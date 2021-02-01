@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Bring your brand story to life
-image: /img/home-jumbotron.jpg
+imageEgg: ../img/eoin_and_giorgi.jpg
 heading: Bring your brand story to life
 pageHead:
   title: Bring your brand story to life

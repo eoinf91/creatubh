@@ -1,7 +1,6 @@
 import React from 'react';
-import eoinGiorgi from '../../img/eoin_and_giorgi.jpg';
 
-const Egg = () => {
+const Egg = ({ eggImage }) => {
     return (
         <div className="egg">
             <svg viewBox="0 0 550.5 654.7">
@@ -1699,7 +1698,7 @@ const Egg = () => {
             c45.6-11.9,84.9-35.8,115.4-67.4c29.9-32.8,51.4-74,60.3-120.8C516.5,382.9,516.6,342.3,510.7,300.9z"/>        
         </clipPath>
     </defs>
-    <image href={eoinGiorgi} clip-path="url(#eggCut)" />
+    <image href={eggImage} clip-path="url(#eggCut)" />
 {/* <img 
     href={eoinGiorgi} 
     alt="Eoin and Giorgi" 

@@ -5,9 +5,33 @@ import Egg from '../Egg/Egg';
 import Line from '../Line/Line';
 import "./header.styles.scss";
 
-const Header = ({ title, btnLink, btnText, templateKey, subtitle }) => {
+const Header = ({ 
+    title, 
+    btnLink, 
+    btnText, 
+    templateKey, 
+    subtitle, 
+    backgroundImage, 
+    eggImage 
+}) => {
     return (
-        <header>
+        <header
+            className=
+                {
+                    templateKey === 'index-page'
+                    ? null
+                    : 'has-bg-image'
+                }
+            style={{ 
+                'background': `
+                    linear-gradient(rgba(32,104,108,0.85), 
+                    rgba(32,104,108,0.8)), 
+                    url(${backgroundImage})`,
+                'backgroundSize': 'cover',
+                'backgroundPosition': 'center',
+                'backgroundBlendMode': 'multiply'
+            }}
+        >
             <svg id="head-blob" viewBox="0 0 1267 702">
                 <path fill="#005236" id="Intersection_3" class="st0" d="M273,678.9l-91.3-51.2C75.2,568.1,67.2,417.8,166.8,347.2c0.9-0.7,1.9-1.3,2.8-2 c47.9-36.3,57.3-104.5,21-152.4c0,0,0,0,0,0l-4.7-6.2c-28.1-37-75.8-53.3-120.7-41.2l-26.6,7.2c-32.3,8.7-53.5-33-27.3-53.9 l19.9-15.9c43.6-34.8,92.2-62.8,144.2-82.9h1091.1v449.3c-30.3,13.5-65.5,10.1-92.6-9l-47.3-33.2c-85-59.6-203-32.3-253.2,58.7 l-33.7,61.2c-21.8,39.6-71.4,54.5-111.5,33.3c-68.9-36.4-153.9-18.4-202,42.9l-23.7,30.1C447.8,702.9,350.3,722.3,273,678.9 L273,678.9z"/>
             </svg>
@@ -23,7 +47,7 @@ const Header = ({ title, btnLink, btnText, templateKey, subtitle }) => {
                             </Link>
                         </div>
                         <div className="col">
-                            <Egg />
+                            <Egg eggImage={eggImage} />
                         </div>
                     </div>
                 : 

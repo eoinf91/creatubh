@@ -1,0 +1,58 @@
+@import "../all.scss";
+
+.two-col {
+    padding: 0 20px;
+
+    &.two-col-image {
+
+        &:nth-child(even){
+            
+            @media (min-width: $tablet) {
+                flex-direction: row-reverse;
+            }
+        }
+    }
+
+    .col {
+        margin: 0 auto 30px;
+        text-align: center;
+
+        @media (min-width: $tablet) {
+            text-align: left;
+        }
+    }
+
+    .col.single {
+
+        @media (min-width: $tablet) {
+            width: calc( 30% - 50px );
+        }
+    }
+
+    .col.double {
+        
+        @media (min-width: $tablet) {
+            width: calc( 70% - 50px );
+        }
+    }
+    
+    .egg {
+
+        svg {
+            max-height: 350px;
+
+            @media (min-width: $tablet) {
+                max-height: 1000px;
+                width: 100%;
+            }
+
+            .st3 {
+                fill: $orange;
+            }
+
+            image {
+                width: 100%;
+            }
+        }
+    }
+}

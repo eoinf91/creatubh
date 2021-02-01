@@ -28,6 +28,7 @@ export const IndexPageTemplate = ({
   formHeading,
   formSubheading,
   templateKey,
+  eggImage,
 }) => {
   const AboutPageContent = contentComponent || Content
 
@@ -38,6 +39,7 @@ export const IndexPageTemplate = ({
       btnText={btnText}
       btnLink={btnLink}
       templateKey={templateKey}
+      eggImage={eggImage}
     />
     <AboutPageContent
       content={aboutContent}
@@ -112,6 +114,7 @@ const IndexPage = ({ data }) => {
         formHeading={data.indexPageQuery.frontmatter.form.heading}
         formSubheading={data.indexPageQuery.frontmatter.form.subheading}
         templateKey={data.indexPageQuery.frontmatter.templateKey}
+        eggImage={data.indexPageQuery.frontmatter.imageEgg.publicURL}
       />
     </Layout>
   )
@@ -149,6 +152,9 @@ export const pageQuery = graphql`
           subheading
         }
         templateKey
+        imageEgg {
+          publicURL
+        }
       }
     }
     aboutPageQuery: markdownRemark(frontmatter: { templateKey: { eq: "about-page" } }) {

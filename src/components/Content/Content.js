@@ -6,7 +6,11 @@ import "./content.styles.scss"
 
 export const HTMLContent = ({ content, className, path }) => (
   <div 
-    className={`page-description ${className}`}
+    className={
+      className != null
+        ? `page-description ${className}`
+        : `page-description`
+    }
   >
     <div dangerouslySetInnerHTML={{ __html: content }} />
     <Link to={path} className="cta">Learn More</Link>

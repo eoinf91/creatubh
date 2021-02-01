@@ -6,23 +6,34 @@ import Layout from '../components/Layout'
 import Header from '../components/Header/Header'
 import Content, { HTMLContent } from '../components/Content/Content'
 
-export const ServicePageTemplate = ({ title, content, contentComponent }) => {
+export const ServicePageTemplate = ({ 
+    title, 
+    content, 
+    contentComponent,
+    backgroundImage,
+    subtitle,
+  }) => {
   const PageContent = contentComponent || Content
 
   return (
     <div>
-      <Header title={title} />
+      <Header 
+        title={title} 
+        backgroundImage={backgroundImage} 
+        subtitle={subtitle}
+      />
       <PageContent className="content" content={content} />
     </div>
   )
 }
 
 ServicePageTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
   pageHead: PropTypes.shape({
     title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    backgroundImage: PropTypes.string.isRequired,
   }),
 }
 
@@ -34,8 +45,10 @@ const ServicePage = ({ data }) => {
     <Layout>
       <ServicePageTemplate
         contentComponent={HTMLContent}
-        title={frontmatter.title}
+        title={frontmatter.pageHead.title}
+        subtitle={frontmatter.pageHead.subtitle}
         content={post.html}
+        backgroundImage={frontmatter.pageHead.background.publicURL}
       />
     </Layout>
   )
@@ -56,7 +69,13 @@ export const ServicePageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
-        title
+        pageHead {
+          title
+          subtitle
+          background {
+            publicURL
+          }
+        }
       }
     }
   }
