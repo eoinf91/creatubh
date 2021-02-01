@@ -11,6 +11,26 @@
                 flex-direction: row-reverse;
             }
         }
+
+        .egg {
+
+            svg {
+                max-height: 350px;
+    
+                @media (min-width: $tablet) {
+                    max-height: 1000px;
+                    width: 100%;
+                }
+    
+                .st3 {
+                    fill: $orange;
+                }
+    
+                image {
+                    width: 100%;
+                }
+            }
+        }
     }
 
     .col {
@@ -33,26 +53,6 @@
         
         @media (min-width: $tablet) {
             width: calc( 70% - 50px );
-        }
-    }
-    
-    .egg {
-
-        svg {
-            max-height: 350px;
-
-            @media (min-width: $tablet) {
-                max-height: 1000px;
-                width: 100%;
-            }
-
-            .st3 {
-                fill: $orange;
-            }
-
-            image {
-                width: 100%;
-            }
         }
     }
 }
