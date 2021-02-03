@@ -1,15 +1,12 @@
 import React from 'react'
 import Layout from '../../components/Layout'
+import Header from '../../components/Header/Header'
 
 export default () => (
   <Layout>
-    <section className="section">
-      <div className="container">
-        <div className="content">
-          <h1>Thank you!</h1>
-          <p>This is a custom thank you page for form submissions</p>
-        </div>
-      </div>
-    </section>
+    <Header
+        title={"Thank You"}
+        subtitle={"We aim to respond to your request within 24hrs."}
+      />
   </Layout>
 )

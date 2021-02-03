@@ -1,0 +1,23 @@
+@import '../all.scss';
+
+.portfolio-gallery {
+    max-width: 1500px;
+    padding: 20px;
+    margin: 80px auto;
+
+    .portfolio-item {
+        margin: 50px auto 80px;
+    }
+
+    .three-col {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 20px 0;
+
+        .col {
+            width: calc(100% / 3 - 20px);
+            height: 300px;
+        }
+    }
+}

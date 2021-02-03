@@ -4,16 +4,18 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
 import Header from '../components/Header/Header'
-import Content, { HTMLContent } from '../components/Content/Content'
+import ServiceOverview from '../components/ServiceOverview/ServiceOverview'
+import OneColTextBlock from '../components/OneColTextBlock/OneColTextBlock'
 
 export const ServicePageTemplate = ({ 
     title, 
-    content, 
-    contentComponent,
     backgroundImage,
     subtitle,
+    cpTitle,
+    cpCopy,
+    cpBtnLink,
+    cpBtnCopy
   }) => {
-  const PageContent = contentComponent || Content
 
   return (
     <div>
@@ -22,7 +24,13 @@ export const ServicePageTemplate = ({
         backgroundImage={backgroundImage} 
         subtitle={subtitle}
       />
-      <PageContent className="content" content={content} />
+      <ServiceOverview />
+      <OneColTextBlock
+        title={cpTitle}
+        subtitle={cpCopy}
+        btnLink={cpBtnLink}
+        btnText={cpBtnCopy}
+      />
     </div>
   )
 }
@@ -35,20 +43,27 @@ ServicePageTemplate.propTypes = {
     subtitle: PropTypes.string.isRequired,
     backgroundImage: PropTypes.string.isRequired,
   }),
+  creatubhProcess: PropTypes.shape({
+    cpTitle: PropTypes.string.isRequired,
+    cpCopy: PropTypes.string.isRequired,
+    cpBtnCopy: PropTypes.string.isRequired,
+    cpBtnLink: PropTypes.string.isRequired,
+  })
 }
 
 const ServicePage = ({ data }) => {
-  const { markdownRemark: post } = data
   const { frontmatter } = data.markdownRemark
 
   return (
     <Layout>
       <ServicePageTemplate
-        contentComponent={HTMLContent}
         title={frontmatter.pageHead.title}
         subtitle={frontmatter.pageHead.subtitle}
-        content={post.html}
         backgroundImage={frontmatter.pageHead.background.publicURL}
+        cpTitle={frontmatter.creatubhProcess.title}
+        cpCopy={frontmatter.creatubhProcess.copy}
+        cpBtnLink={frontmatter.creatubhProcess.btnLink}
+        cpBtnCopy={frontmatter.creatubhProcess.btnCopy}
       />
     </Layout>
   )
@@ -75,6 +90,12 @@ export const ServicePageQuery = graphql`
           background {
             publicURL
           }
+        }
+        creatubhProcess {
+          title
+          copy
+          btnLink
+          btnCopy
         }
       }
     }

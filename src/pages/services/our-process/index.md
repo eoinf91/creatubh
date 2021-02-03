@@ -1,22 +1,25 @@
 ---
 templateKey: 'process-page'
 path: /services/our-process
-title: 'The Creatubh Process!'
-subtitle: 'We take care of your business and the story behind it'
-pageIntro: 'Years of working closely with our clients brought to the surface some issues that slowed down the design process. That is why we came up with our ‘Creatubh Process’ which makes it simple for us to understand your expectations and easy for you to achieve the best results in a shorter time!'
+pageHead:
+    background: ../../../img/process_header.jpg
+    title: The Creatubh Process!
+    subtitle: We take care of your business and the story behind it
+    pageIntro: >
+        Years of working closely with our clients brought to the surface some issues that slowed down the design process. That is why we came up with our ‘Creatubh Process’ which makes it simple for us to understand your expectations and easy for you to achieve the best results in a shorter time!
 processOverview:
     colOne:
-        iconImage: /img/we_hear.svg
+        iconImage: ../../../img/we_hear.svg
         title: We Hear
         copy: >
             Pop on a call with us! We want to hear your story and your goals.
     colTwo:
-        iconImage: /img/we_think.svg
+        iconImage: ../../../img/we_think.svg
         title: We Think
         copy: >
             We reflect on who you are and how to enhance you digitally.
     colThree:
-        iconImage: /img/we_create.svg
+        iconImage: ../../../img/we_create.svg
         title: We Create
         copy: >
             Based on what we heard and thought of, we will create what will help your business grow.
@@ -45,4 +48,10 @@ creatubhProcess:
         title: Launch
         copy: >
             This is the stage that should make you thrilled! Once you are fully satisfied with the final design, we will launch your website or provide all the final artwork.
+relPage:
+    title: Creatubh Services
+    copy: >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo
+    btnLink: /services
+    btnCopy: View All
 ---

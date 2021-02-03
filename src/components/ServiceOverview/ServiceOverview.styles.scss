@@ -1,0 +1,37 @@
+@import '../all.scss';
+
+.service-overview {
+    margin: 40px auto 80px;
+    padding: 20px;
+    max-width: 1500px;
+    text-align: center;
+
+    .service-category {
+        margin: 80px auto;
+
+        @media ( min-width: $desktop ) {
+            margin: 0px auto 100px;
+        }
+    }
+
+    .three-cols {
+        margin: 20px auto;
+        display: flex;
+        justify-content: space-between;
+
+        .col {
+            width: calc(100% / 3 - 10px);
+            height: 150px;
+            background: $green;
+
+            @media ( min-width: $tablet ) {
+                height: 250px;
+            }
+
+            @media ( min-width: $desktop ) {
+                width: calc(100% / 3 - 20px);
+                height: 350px;
+            }
+        }
+    }
+}

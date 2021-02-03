@@ -110,7 +110,7 @@ const IndexPage = ({ data }) => {
         processColOneImage={data.processPageQuery.frontmatter.processOverview.colOne.iconImage.publicURL}
         processColTwoImage={data.processPageQuery.frontmatter.processOverview.colTwo.iconImage.publicURL}
         processColThreeImage={data.processPageQuery.frontmatter.processOverview.colThree.iconImage.publicURL}
-        processSubtitle={data.processPageQuery.frontmatter.subtitle}
+        processSubtitle={data.processPageQuery.frontmatter.pageHead.subtitle}
         formHeading={data.indexPageQuery.frontmatter.form.heading}
         formSubheading={data.indexPageQuery.frontmatter.form.subheading}
         templateKey={data.indexPageQuery.frontmatter.templateKey}
@@ -166,7 +166,9 @@ export const pageQuery = graphql`
     processPageQuery: markdownRemark(frontmatter: { templateKey: { eq: "process-page" } }) {
       frontmatter {
         path
-        subtitle
+        pageHead {
+          subtitle
+        }
         processOverview {
           colOne {
             copy
