@@ -14,7 +14,7 @@ companyMemberOne:
     name: Eoin Feely
     jobTitle: CEO, Digital Designer & Web Developer
     bio: >
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non
+        
 companyMemberTwo:
     memberImage:
         image: ../../img/eoin_and_giorgi.jpg
@@ -22,7 +22,12 @@ companyMemberTwo:
     name: Giorgia Ascia
     jobTitle: Visual Artist & Social Media Executive
     bio: >
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non
+       
+aboutSummary:
+    title: We are creatubh!
+    copy: >
+        We are a couple who loves to create. In 2018, we decided to quit our jobs and travel around South America where we discovered our love for a digital nomad life. We have spent the last two years studying and researching what a business must have to gain success. We decided to try start up our own web agency with the hope to connect with people and tell their stories through a screen. We love all that is behind art and we feel that we want to put all our knowledge related to art, design and web development into the relationships with our clients. 
+
 ---
 ## We are creatubh!
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet
+We are a couple who loves to create. In 2018, we decided to quit our jobs and travel around South America where we discovered our love for a digital nomad life. We have spent the last two years studying and researching what a business must have to gain success. We decided to try start up our own web agency with the hope to connect with people and tell their stories through a screen. We love all that is behind art and we feel that we want to put all our knowledge related to art, design and web development into the relationships with our clients. 

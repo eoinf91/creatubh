@@ -48,6 +48,7 @@ $nav-fs: 14px;
 
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 body{
@@ -138,6 +139,7 @@ p {
     border: 1px solid $orange;
     font-size: 14px;
     display: inline-block;
+    cursor: pointer;
 
     @media ( min-width: $desktop ) {
         font-size: 16px;

@@ -13,20 +13,19 @@ export const HTMLContent = ({ content, className, path }) => (
     }
   >
     <div dangerouslySetInnerHTML={{ __html: content }} />
-    <Link to={path} className="cta">Learn More</Link>
   </div>
 )
 
 const Content = ({ content, className, path }) => (
-  <div className={`page-description ${className}`}>
+  <div className={`page-description ${className}`} path={path}>
     {content}
-    <Link to={path} className="cta">Learn More</Link>
   </div>
 )
 
 Content.propTypes = {
   content: PropTypes.node,
   className: PropTypes.string,
+  path: PropTypes.string,
 }
 
 HTMLContent.propTypes = Content.propTypes

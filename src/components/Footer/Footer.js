@@ -38,6 +38,9 @@ const Footer = class extends React.Component {
             <Link to="/testimonials">
               Testimonials
             </Link>
+            <Link to="/faqs">
+              FAQs
+            </Link>
             <Link to="/contact">
               Contact
             </Link>

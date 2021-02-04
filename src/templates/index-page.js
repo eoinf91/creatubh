@@ -4,16 +4,14 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Header from '../components/Header/Header'
-import Content, { HTMLContent } from '../components/Content/Content'
 import ThreeCols from '../components/ThreeCols/ThreeCols'
 import Form from '../components/Form/Form'
+import OneColTextBlock from '../components/OneColTextBlock/OneColTextBlock'
 
 export const IndexPageTemplate = ({
   title,
   btnLink,
   btnText,
-  aboutContent,
-  contentComponent,
   aboutPath,
   processColOneCopy,
   processColOneTitle,
@@ -29,8 +27,9 @@ export const IndexPageTemplate = ({
   formSubheading,
   templateKey,
   eggImage,
+  aboutSummaryTitle,
+  aboutSummaryCopy,
 }) => {
-  const AboutPageContent = contentComponent || Content
 
   return (
   <div>
@@ -41,10 +40,16 @@ export const IndexPageTemplate = ({
       templateKey={templateKey}
       eggImage={eggImage}
     />
-    <AboutPageContent
+    <OneColTextBlock
+      title={aboutSummaryTitle}
+      subtitle={aboutSummaryCopy}
+      btnLink={aboutPath}
+      btnText={"Learn More"}
+    />
+    {/* <AboutPageContent
       content={aboutContent}
       path={aboutPath}
-    />
+    /> */}
     <ThreeCols
       colOneTitle={processColOneTitle}
       colOneCopy={processColOneCopy}
@@ -88,6 +93,8 @@ IndexPageTemplate.propTypes = {
     subheading: PropTypes.string.isRequired,
   }),
   templateKey: PropTypes.string,
+  aboutSummaryCopy: PropTypes.string,
+  aboutSummaryTitle: PropTypes.string,
 }
 
 const IndexPage = ({ data }) => {
@@ -98,9 +105,9 @@ const IndexPage = ({ data }) => {
         title={data.indexPageQuery.frontmatter.pageHead.title}
         btnLink={data.indexPageQuery.frontmatter.pageHead.ctaBtn.link}
         btnText={data.indexPageQuery.frontmatter.pageHead.ctaBtn.text}
-        contentComponent={HTMLContent}
-        aboutContent={data.aboutPageQuery.html}
         aboutPath={data.aboutPageQuery.frontmatter.path}
+        aboutSummaryTitle={data.aboutPageQuery.frontmatter.aboutSummary.title}
+        aboutSummaryCopy={data.aboutPageQuery.frontmatter.aboutSummary.copy}
         processColOneCopy={data.processPageQuery.frontmatter.processOverview.colOne.copy}
         processColTwoCopy={data.processPageQuery.frontmatter.processOverview.colTwo.copy}
         processColThreeCopy={data.processPageQuery.frontmatter.processOverview.colThree.copy}
@@ -161,6 +168,10 @@ export const pageQuery = graphql`
       html
       frontmatter {
         path
+        aboutSummary {
+          title
+          copy
+        }
       }
     }
     processPageQuery: markdownRemark(frontmatter: { templateKey: { eq: "process-page" } }) {

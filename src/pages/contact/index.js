@@ -3,7 +3,6 @@ import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
 import Header from '../../components/Header/Header'
 import Form from '../../components/Form/Form'
-import FAQs from '../../components/faqs/faqs'
 
 function encode(data) {
   return Object.keys(data)
@@ -43,7 +42,6 @@ export default class Index extends React.Component {
           title={"Get in touch"}
           subtitle={"If you do not ask, the answer is always no! If you have any question that could help you make a decision, don’t be afraid to ask. We are always happy to reply and help in any way we possibly can."}
         />
-        <FAQs />
         <Form
           formHeading={ "Get in touch!" }
           formSubheading={ "Complete the form below and we will get back to you asap!" }

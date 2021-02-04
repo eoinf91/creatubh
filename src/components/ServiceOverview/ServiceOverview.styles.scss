@@ -23,6 +23,7 @@
             width: calc(100% / 3 - 10px);
             height: 150px;
             background: $green;
+            box-shadow: 0 0 5px 0 rgba(0,0,0,0.15);
 
             @media ( min-width: $tablet ) {
                 height: 250px;
@@ -30,7 +31,7 @@
 
             @media ( min-width: $desktop ) {
                 width: calc(100% / 3 - 20px);
-                height: 350px;
+                height: 300px;
             }
         }
     }

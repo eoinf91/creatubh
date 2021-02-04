@@ -18,7 +18,7 @@
                 max-height: 350px;
     
                 @media (min-width: $tablet) {
-                    max-height: 1000px;
+                    max-height: 450px;
                     width: 100%;
                 }
     
@@ -36,23 +36,9 @@
     .col {
         margin: 0 auto 30px;
         text-align: center;
-
-        @media (min-width: $tablet) {
-            text-align: left;
-        }
-    }
-
-    .col.single {
-
-        @media (min-width: $tablet) {
-            width: calc( 30% - 50px );
-        }
-    }
-
-    .col.double {
         
         @media (min-width: $tablet) {
-            width: calc( 70% - 50px );
+            width: calc( 100% / 2 - 50px);
         }
     }
 }

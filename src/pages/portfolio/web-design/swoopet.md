@@ -1,14 +1,14 @@
 ---
 templateKey: portfolio-item
-title: This is a logo and branding tester
-portfolioCategory: logo and branding
-description: Some overview text about the project
-featuredImage: ../../../img/about_header.jpg
-date: 2021-02-01T15:04:10.000Z
+title: Swoopet
+portfolioCategory: Web Design
+description: Design and develop an eCommerce store for Swoopet
+featuredImage: ../../../img/swoopet_home.jpg
+date: 2021-01-01T15:10:10.000Z
 projectImages:
-    imageOne: ../../../img/about_header.jpg
-    imageTwo: ../../../img/about_header.jpg
-    imageThree: ../../../img/about_header.jpg
+    imageOne: ../../../img/swoopet_home.jpg
+    imageTwo: ../../../img/swoopet_product.jpg
+    imageThree: ../../../img/swoopet_blog.jpg
     imageFour: ../../../img/about_header.jpg
     imageFive: ../../../img/about_header.jpg
     imageSix: ../../../img/about_header.jpg

@@ -18,6 +18,7 @@
         .col {
             width: calc(100% / 3 - 20px);
             height: 300px;
+            box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
         }
     }
 }

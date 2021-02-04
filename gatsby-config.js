@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Creatubh',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      'Creatubh is a creative design agency that was created with the aim of enhancing brands, making the stories behind each brand spring to life. Traveling around the world made us aware of the incredible number of stories behind a single individual and their business. That is why we decided to create our own agency with the aim of helping people telling their own stories digitally.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

@@ -25,12 +25,13 @@ export const ProcessPageTemplate = ({
   cpTitle,
   cpCopy,
   cpBtnCopy,
-  cpBtnLink
+  cpBtnLink,
+  subtitle
  }) => {
 
   return (
     <div>
-      <Header title={title} />
+      <Header title={title} subtitle={subtitle} />
       <ProcessSteps
         stepOneTitle={stepOneTitle}
         stepOneDescription={stepOneDescription}
@@ -57,6 +58,7 @@ export const ProcessPageTemplate = ({
 
 ProcessPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
+  pageIntro: PropTypes.string.isRequired,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
   pageHead: PropTypes.shape({
@@ -105,6 +107,7 @@ const ProcessPage = ({ data }) => {
       <ProcessPageTemplate
         contentComponent={HTMLContent}
         title={frontmatter.pageHead.title}
+        subtitle={frontmatter.pageHead.pageIntro}
         content={post.html}
         stepOneTitle={frontmatter.creatubhProcess.stepOne.title}
         stepOneDescription={frontmatter.creatubhProcess.stepOne.copy}
@@ -144,6 +147,7 @@ export const ProcessPageQuery = graphql`
       frontmatter {
         pageHead {
           title
+          pageIntro
         }
         creatubhProcess {
           stepOne {

@@ -38,12 +38,9 @@ export const AboutPageTemplate = ({
           name={memberNameOne}
           jobTitle={memberJobTitleOne}
           bio={memberBioOne}
-        />
-        <TwoColImage 
-          memberImage={memberImageTwo} 
-          name={memberNameTwo}
-          jobTitle={memberJobTitleTwo}
-          bio={memberBioTwo}
+          memberImageTwo={memberImageTwo}
+          nameTwo={memberNameTwo}
+          jobTitleTwo={memberJobTitleTwo}
         />
       </div>
     </div>
